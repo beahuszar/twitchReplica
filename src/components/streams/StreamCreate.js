@@ -9,8 +9,14 @@ import { Field, reduxForm } from 'redux-form';
 class StreamCreate extends Component {
   // formProps input is passed by redux-form
   // it has a bunch of useful functions/event handlers
-  renderInput({ input }) {
-    return <input {...input} />;
+  // label is coming from the <Field/> component's label property
+  renderInput({ input, label }) {
+    return (
+      <div className="field">
+        <label>{label}</label>
+        <input {...input} />
+      </div>
+    );
 
     /* not destructured way with some formProps example
     (
@@ -24,9 +30,9 @@ class StreamCreate extends Component {
 
   render() {
     return (
-      <form>
-        <Field name="title" component={this.renderInput} />
-        <Field name="description" component={this.renderInput} />
+      <form className="ui form">
+        <Field name="title" component={this.renderInput} label="Enter Title" />
+        <Field name="description" component={this.renderInput} label="Enter Description" />
       </form>
     );
   }
