@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // Field - a react component
 // reduxForm - a function, with the same functionality as connect()()
 import { Field, reduxForm } from 'redux-form';
+import { ifStatement } from '@babel/types';
 
 // Refactored to class based
 // in order to have a bunch of helper methods
@@ -43,6 +44,25 @@ class StreamCreate extends Component {
       </form>
     );
   }
+}
+
+// again => formValues, passed in by redux-form
+// to have access to all form elements and input values
+const validate = (formValues) => {
+  // if errors obj receives a property
+  // redux form realises there is a validation error
+  // and returns that object
+  const errors = {};
+
+  if (!formValues.title) {
+    errors.title = 'You must enter a title';
+  }
+
+  if (!formValues.description) {
+    errors.description = 'You must enter a description';
+  }
+
+  return errors;
 }
 
 // This way, StreamCreate component will be passed several props,
