@@ -28,11 +28,18 @@ class StreamCreate extends Component {
     */
   }
 
+  // with the help of this.props.handleSubmit()
+  // we are now able to access all the form data
+  onSubmit(formProps) {
+    console.log(formProps);
+  }
+
   render() {
     return (
-      <form className="ui form">
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
         <Field name="title" component={this.renderInput} label="Enter Title" />
         <Field name="description" component={this.renderInput} label="Enter Description" />
+        <button className="ui button primary">Submit</button>
       </form>
     );
   }
@@ -40,6 +47,7 @@ class StreamCreate extends Component {
 
 // This way, StreamCreate component will be passed several props,
 // that it can utilize, for the form functionality
+// all of them can be called with this.props syntax
 export default reduxForm({
   form: 'streamCreate'
 })(StreamCreate);
