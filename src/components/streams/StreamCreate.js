@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // Field - a react component
 // reduxForm - a function, with the same functionality as connect()()
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { createStream } from '../../actions'
 
 // Refactored to class based
 // in order to have a bunch of helper methods
@@ -43,8 +45,8 @@ class StreamCreate extends Component {
 
   // with the help of this.props.handleSubmit()
   // we are now able to access all the form data
-  onSubmit(formProps) {
-    console.log(formProps);
+  onSubmit = (formProps) => {
+    this.props.createStream(formProps);
   }
 
   render() {
@@ -84,7 +86,9 @@ const validate = (formValues) => {
 // all of them can be called with this.props syntax
 //
 // validate prop equals to the validate function we have created
-export default reduxForm({
+const formWrapped = reduxForm({
   form: 'streamCreate',
   validate
 })(StreamCreate);
+
+export default connect(null, { createStream })(formWrapped);
