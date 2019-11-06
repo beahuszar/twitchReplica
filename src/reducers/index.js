@@ -6,5 +6,5 @@ import streamReducer from './streamReducer'
 export default combineReducers({
   auth: authReducer,
   form: formReducer, // coming from the installed redux-form library
-  stream: streamReducer
+  streams: streamReducer
 });

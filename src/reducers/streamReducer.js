@@ -17,6 +17,8 @@ export default (state = {}, action) => {
       // so that redux sees it as a new object and rerenders
       return { ...state, [action.payload.id]: action.payload };
     case FETCH_STREAMS:
+      // we are mapping the array to an object
+      // as it is easier to manipulate the store's state in the reducer
       return { ...state, ..._.mapKeys(action.payload, 'id') };
     case CREATE_STREAM:
       return { ...state, [action.payload.id]: action.payload };
