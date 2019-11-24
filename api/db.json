@@ -1,0 +1,39 @@
+{
+  "streams": [
+    {
+      "title": "bla",
+      "description": "bla",
+      "id": 1
+    },
+    {
+      "title": "Vincz",
+      "description": "Pencz",
+      "id": 2
+    },
+    {
+      "title": "Winston szemet penccel",
+      "description": "Hajra penc",
+      "id": 3
+    },
+    {
+      "title": "Winston szemet penccel",
+      "description": "Hajra penc",
+      "id": 4
+    },
+    {
+      "title": "Winston szemet penccel",
+      "description": "Hajra penc",
+      "id": 5
+    },
+    {
+      "title": "Winston szemet penccel",
+      "description": "Hajra penc",
+      "id": 6
+    },
+    {
+      "title": "testestest-REFACTORED",
+      "description": "abstracted out",
+      "id": 10
+    }
+  ]
+}
